@@ -15,9 +15,13 @@ ROSのインストールについては[こちら](/src/intro/environment.md)を
     `$ git clone https://github.com/Livox-SDK/Livox-SDK`
 
 2. 下記のコマンドを実行
+
     `$ cd Livox-SDK`
+
     `$ cd build && cmake ..`
+
     `$ make`
+
     `$ sudo make install`
 
 ROSとLivox-SDKがインストールできたら、Livoxlidarのパッケージをインストール
@@ -31,6 +35,7 @@ ROSとLivox-SDKがインストールできたら、Livoxlidarのパッケージ�
 2. 次のコマンドで、livox_ros_driverをビルドする。
 
     `$ cd ws_lidar`
+    
     `$ catkin_make`
 
 3. 次のコマンドで、現在のROSパッケージ環境を更新する。
