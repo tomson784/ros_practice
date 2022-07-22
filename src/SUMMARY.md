@@ -32,7 +32,7 @@
     - [xArm7の使用手順](./xarm/setup.md)
 - [SLAM](./slam/index.md)
 - [turtlebot3](./turtlebot3/index.md)
-- [YP-Spur](./YP-Spur/index.md)
+- [YP-Spur](./Y-Spur/index.md)
 - [Open3d](./open3d/index.md)
     - [Open3dのreconstructionsystemのサンプルについて](./open3d/reconstructionsystem_sample.md)
     - [reconstructionsystemを自分で取得したデータで実行](./open3d/reconstructionsystem.md)
