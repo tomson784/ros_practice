@@ -1,13 +1,6 @@
 # 動作テスト
 
 ## 速度一定で動かすサンプル
-<u> 仕様 </u>  
-・モータードライバ(VNH5019搭載)  
-&emsp;[データシート](https://www.switch-science.com/catalog/1590/)
-・エンコーダ   
-&emsp;ピン配置([データシート](https://docs.rs-online.com/3bf7/0900766b8130f67c.pdf))  
-  <img src="./encoder.png" width="500px"/>  
-
 <u> 回路 </u>  
 　追記予定
 
@@ -131,6 +124,3 @@ void loop() {
    
 }
 ```
-
-## 参考
-[1] [Pololu-VNH5019ボード＋Arduinoでモーター制御](https://yunit.techblog.jp/archives/57578349.html)
