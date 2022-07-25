@@ -9,8 +9,8 @@
 ```
 //ピン番号
 /*-----モータ-----*/
-#define MOTORA 10
-#define MOTORB 7
+#define MOTORA 7
+#define MOTORB 10
 #define MOTORP 11
 /*-----エンコーダ-----*/
 #define PINENCA 2
@@ -28,15 +28,16 @@ unsigned char pinENCA;
 unsigned char pinENCB;
 
 /*-----目標設定-----*/
-float target_vel = 0.1;  // 目標速度
+float target_vel = 0.10;  // 目標速度
 
 /*----エンコーダ----*/
 int encValue;         // エンコーダ値
 int oldencValue;      // 直前のエンコーダ値
 
 /*-----PID-----*/
+// 12 V時
 float pid = 0.0;             // T = Kp * e + Kd * e'+ Ki * ∫edt
-float kp = 230;              // P制御の係数
+float kp = 220;              // P制御の係数
 float ki = 0;                // I制御の係数
 float kd = 0;                // D制御の係数
 float f = 220;
@@ -50,12 +51,13 @@ float all_time = 0;
 int motorPWM = 0;
 const int maxPWM = 255;       // モータトルク最高
 const int minPWM = 0;         // モータトルク最低
-const int EPR = 2400;         // モータ一回転あたりのエンコーダ値 
+const int EPR = 4700;         // モータ一回転あたりのエンコーダ値 
 const float r = 0.015;        
 const float CM = 2*r*3.1415;  // 円周
 
 void Pid_calc() {
   encValue = pulses;
+  //Serial.println(encValue);
   int diffencValue = encValue - oldencValue;
   oldencValue = encValue;
 
@@ -70,7 +72,7 @@ void Pid_calc() {
   P = target_vel - v;                   // 比例項 目標速度-現在の速度                
   I += P;                               // 積分項 比例項の総和
   D = (P - prevP)/ dt;                  // 微分項 エンコーダ値-直前のエンコーダ値=角速度
-  pid = kp * P + ki * I + kd * D + f;
+  pid = kp * P + ki * I + kd * D;
   prevP = P;
 
   if(v != 0) Serial.println(v,4); 
@@ -80,14 +82,13 @@ void Pid_calc() {
   motorSpeed += (int)pid;
   // PWM制限
   motorPWM = constrain(abs(motorSpeed), minPWM, maxPWM);
-
   oldtime = now;
 }
 
 // エンコーダーの処理
 void EncCount() {                             // A相変化時に処理
   //currDir=!(digitalRead(PINENCA)^digitalRead(PINENCB));
-  currDir = !(((PIND >> 2) & 0b00000001) ^ ((PIND >> 4) & 0b00000001));
+  currDir = !(((PIND >> PINENCA) & 0b00000001) ^ ((PIND >> PINENCB) & 0b00000001));
   currDir == HIGH ? ++pulses : --pulses;
 }
 
@@ -99,7 +100,7 @@ void setup() {
   pinMode(PINENCA, INPUT);
   pinMode(PINENCB, INPUT);
   Serial.begin(9600);
-  attachInterrupt(PINENCA - 2, EncCount, RISING);
+  attachInterrupt(PINENCA - 2, EncCount, CHANGE);
 }
 
 void loop() {
@@ -110,6 +111,7 @@ void loop() {
     Pid_calc();
 
     // モータ回転
+    //motorPWM = 30;
     analogWrite(MOTORP, motorPWM);
     if (target_vel >= 0)
     { // 正転
@@ -121,6 +123,5 @@ void loop() {
       digitalWrite(MOTORA, HIGH);
       digitalWrite(MOTORB, LOW);
     }
-   
 }
 ```
