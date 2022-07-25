@@ -4,12 +4,12 @@
 
 <u> 仕様 </u>  
 ・モータードライバ(VNH5019搭載)  
-&emsp;[データシート](https://www.switch-science.com/catalog/1590/)
+&emsp;[データシート](https://www.switch-science.com/catalog/1590/)  
 ・エンコーダ   
 &emsp;ピン配置([データシート](https://docs.rs-online.com/3bf7/0900766b8130f67c.pdf))  
   <img src="./encoder.png" width="500px"/> 
 
-<u>動作確認</u>
+<u>動作テスト</u>  
 ・[テスト](./test.md)  
 
 ## 参考

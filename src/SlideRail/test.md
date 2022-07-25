@@ -2,7 +2,7 @@
 
 ## 速度一定で動かすサンプル
 <u> 回路 </u>  
-　追記予定
+　<img src="./circle_route.png" width="600px"/>   
 
 <u>Arduinoコード</u>
 
