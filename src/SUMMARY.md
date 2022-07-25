@@ -60,4 +60,5 @@
     - [MarkDownファイル](./MarkDown/index.md)
         - [MarkDownファイルの書き方について](./MarkDown/markdown_syntax.md)
     - [バッテリー充電](./battery/charge_rule.md)
+    - [スライドレール](./SlideRail/index.md)
     - [gitテスト](./appendix/git_test.md)    
