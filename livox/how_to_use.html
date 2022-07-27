@@ -178,6 +178,10 @@
 </li>
 </ol>
 <p>このコマンドで起動することで、Livoxlidarデバイスに接続され、rvizにpointcloud2形式のデータが出力される。</p>
+<p>これで動かない場合は，LANのIPアドレスを固定してないことが原因かもしれない．
+<a href="https://www.h.chiba-u.jp/lab/gmet/media/Livox_SLAM%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB.pdf">ここ</a>にLivoxでSLAMをするための一連の環境構築について書かれている．
+Livoxに接続した有線LANの設定からIP4を手動にし，アドレス:<code>192.168.1.xx</code>，ネットマスク：<code>255.255.255.0</code>，ゲートウェイ：<code>192.168.1.1</code>，としてそれぞれ設定する．
+アドレス:<code>192.168.1.xx</code>の<code>xx</code>は使っていないアドレスであれば問題なさそう．（私は<code>xx</code>を<code>2</code>，<code>50</code>で試したがどちらでもデータが取得できた）</p>
 <p>※他にも起動ファイルがあるので、それぞれの用途に応じて使い分ける。他の起動ファイルと説明は<a href="https://github.com/Livox-SDK/livox_ros_driver">こちら</a></p>
 <ol start="2">
 <li>電源を入れる</li>
