@@ -64,4 +64,5 @@
     - [バッテリー充電](./battery/charge_rule.md)
     - [スライドレール](./SlideRail/index.md)
         - [動作テスト](./SlideRail/test.md)
+    - [PlotJuggler](./appendix/PotJuggler.md)
     - [gitテスト](./appendix/git_test.md)    
