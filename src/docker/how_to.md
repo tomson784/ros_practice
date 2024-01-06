@@ -114,3 +114,4 @@ xhost -local:docker
 
 ## 参考
 - [generic/run.sh · master · Autoware Foundation / MovedToGitHub / docker · GitLab](https://gitlab.com/autowarefoundation/autoware.ai/docker/-/blob/master/generic/run.sh)
+- [Docker で Rviz、Gazebo を動かす on Ubuntu](https://qiita.com/sandaruh/items/ec6fee8dd16913f4d43c)
